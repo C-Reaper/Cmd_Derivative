@@ -1,193 +1,73 @@
-# Cmd_Derivative
+## Overview
+The project appears to be a simple C program designed for mathematical operations, specifically parsing and manipulating functions. The main features include parsing floating-point numbers, performing basic arithmetic operations, and potentially more complex mathematical manipulations such as differentiation.
 
+## Features
+- Parsing of floating-point numbers.
+- Basic arithmetic operations.
+- Potential support for function parsing, manipulation, and differentiation.
 
-## Project Overview
+## Project Structure
+The project structure includes several directories and files relevant to the development and execution of the program:
 
-This project implements specialized functionality related to derivative.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for derivative
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
+- `build/`: Directory where the executable files are produced.
+- `src/`: Contains the source code files including `Main.c` and various header files.
+  - `Main.c`: The entry point of the program, which currently includes commented-out code for function parsing and manipulation.
 
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler and Debugger (GCC, Clang)
 - Make utility
-- Standard development tools
 
-### Build Steps
+## Build & Run
+The build process is managed using Makefiles specific to different operating systems:
 
-1. Navigate to project directory:
-```bash
-cd Cmd_Derivative
+- **Linux**: Use `Makefile.linux`
+- **Windows**: Use `Makefile.windows`
+- **Wine**: Use `Makefile.wine` for cross-compiling to Windows on Linux
+- **WebAssembly (Emscripten)**: Use `Makefile.web`
+
+### Build Process
+To build the project, navigate to the project directory and use the appropriate Makefile:
+
+```sh
+# For Linux
+make -f Makefile.linux all
+
+# For Windows
+make -f Makefile.windows all
+
+# For Wine (Linux cross-compiling for Windows)
+make -f Makefile.wine all
+
+# For WebAssembly
+make -f Makefile.web all
 ```
 
-2. Build the project:
-```bash
-make -f Makefile.(os) all
+### Clean and Rebuild
+To perform a clean build:
+
+```sh
+# For Linux
+make -f Makefile.linux clean
+make -f Makefile.linux all
+
+# For Windows
+make -f Makefile.windows clean
+make -f Makefile.windows all
+
+# For Wine (Linux cross-compiling for Windows)
+make -f Makefile.wine clean
+make -f Makefile.wine all
+
+# For WebAssembly
+make -f Makefile.web clean
+make -f Makefile.web all
 ```
 
-3. For clean rebuild:
-```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
+### Execute the Program
+To run the program:
+
+```sh
+make -f Makefile.linux exe
 ```
 
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
-
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
-
-## Running the Project
-
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Cmd_Derivative/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+This README provides a clear overview of the project, its features, and how to build and run it on different platforms.
