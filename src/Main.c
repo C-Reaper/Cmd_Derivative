@@ -9,21 +9,30 @@
 
 
 int main(int argc,const char** argv){
-    //MFunc_Parser mfp = MFunc_Parser_New();
-    //MFunc_Parser_Var(&mfp,MFunc_Var_New(1.0,"x",0));
-    ////MFunc_Parser_Add(&mfp,"b = x ^ 2.0");
-    //MFunc_Parser_Add(&mfp,"(x ^ 2.0 + 1.0) ^ 2.0");
-    //MFunc_Parser_All(&mfp,MFunc_Parser_Derivative);
-    //MFunc_Parser_All(&mfp,MFunc_Parser_Compress);
-    ////MFunc_Parser_All(&mfp,MFunc_Parser_Exe);
-    //MFunc_Parser_Print(&mfp);
-    //MFunc_Parser_Free(&mfp);
+    MFunc_Parser mfp = MFunc_Parser_New();
+    MFunc_Parser_Var(&mfp,MFunc_Var_New(1.0,"x",0));
+    //MFunc_Parser_Add(&mfp,"b = x ^ 2.0");
 
-    char sv[] = "1.1E2";
-    F64 v = F64_Parse(sv);
-    CStr cv = F64_Get_Ex(v);
-    printf("%s -> %lf -> %s\n",sv,v,cv);
-    CStr_Free(&cv);
+    MFunc_Parser_Add(&mfp,"(x ^ 2.0 + 1.0) ^ 2.0");
+    MFunc_Parser_All(&mfp,MFunc_Parser_Derivative);
+    MFunc_Parser_All(&mfp,MFunc_Parser_Compress);
+    //MFunc_Parser_All(&mfp,MFunc_Parser_Exe);
+
+    MFunc_Parser_Print(&mfp);
+
+    for(int i = 0;i<mfp.sts.size;i++){
+		Token* t = (Token*)Vector_Get(&mfp.sts,i);
+        MFunc_Real r = MFunc_Parser_ExeReal(&mfp,t);
+        printf("Out: %lf\n",r);
+	}
+
+    MFunc_Parser_Free(&mfp);
+
+    //char sv[] = "1.1E2";
+    //F64 v = F64_Parse(sv);
+    //CStr cv = F64_Get_Ex(v);
+    //printf("%s -> %lf -> %s\n",sv,v,cv);
+    //CStr_Free(&cv);
     
     return 0;
 }
